@@ -1,0 +1,52 @@
+version: '3.7'
+services:
+  ## postgresql database for inventory service
+    inventory-db:
+        image: postgres:latest
+        container_name: inventory-db
+        restart: unless-stopped
+        environment:
+            POSTGRES_USER: victor
+            POSTGRES_PASSWORD: victor
+            POSTGRES_DB: inventory_db
+        ports:
+            - "5435:5432"
+        volumes:
+            - ./data/inventory-db:/var/lib/postgresql/data
+        expose:
+          - "5432"
+        command:
+          - -p 5435:5432
+
+  ## postgresql database for products service
+    order-db:
+        image: postgres:latest
+        container_name: products-db
+        restart: unless-stopped
+        environment:
+            POSTGRES_USER: victor
+            POSTGRES_PASSWORD: victor
+            POSTGRES_DB: products_db
+        ports:
+            - "5436:5432"
+        volumes:
+            - ./data/order-db:/var/lib/postgresql/data
+        expose:
+          - "5432"
+        command:
+          - -p 5436:5432
+
+  ## mysql database for order service
+    users-db:
+        image: mysql:latest
+        container_name: order-db
+        restart: unless-stopped
+        environment:
+            MYSQL_ROOT_PASSWORD: victor
+            MYSQL_DATABASE: order_db
+            MYSQL_USER: victor
+            MYSQL_PASSWORD: victor
+        ports:
+            - "3310:3306"
+        volumes:
+            - ./data/users-db:/var/lib/mysql
