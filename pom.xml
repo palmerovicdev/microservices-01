@@ -21,6 +21,7 @@
     <modules>
         <module>microservices-products</module>
         <module>microservices-inventory</module>
+        <module>microservices-order</module>
     </modules>
     <packaging>pom</packaging>
 
