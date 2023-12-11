@@ -20,6 +20,7 @@
     </properties>
     <modules>
         <module>microservices-products</module>
+        <module>microservices-inventory</module>
     </modules>
     <packaging>pom</packaging>
 
