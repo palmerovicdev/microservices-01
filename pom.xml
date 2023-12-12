@@ -24,6 +24,7 @@
         <module>microservices-inventory</module>
         <module>microservices-order</module>
         <module>api-gateway</module>
+        <module>discovery-service</module>
     </modules>
     <packaging>pom</packaging>
 
